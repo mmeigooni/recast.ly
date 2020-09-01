@@ -7,10 +7,10 @@ var App = () => (
       </div>
     </nav>
     <div className="row">
-      <div className="col-md-7 video-player">
+      <div className="col-md-7 video-player-container">
         <div><h5><em>videoPlayer</em> view goes here</h5></div>
       </div>
-      <div className="col-md-5">
+      <div className="col-md-5 video-list-container">
         <div><h5><em>videoList</em> view goes here</h5></div>
       </div>
     </div>

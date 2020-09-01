@@ -1,14 +1,21 @@
-var VideoListEntry = () => (
-  <div className="video-list-entry media">
-    <div className="media-left media-middle">
-      <img className="media-object" src="https://i.ytimg.com/vi/1w8Z0UOXVaY/default.jpg" alt="" />
+var VideoListEntry = (props) => {
+
+  var title = props.video.snippet.title;
+  var desc = props.video.snippet.description;
+  var imgSource = props.video.snippet.thumbnails.default.url;
+
+  return (
+    <div className="video-list-entry media">
+      <div className="media-left media-middle">
+        <img className="media-object" src={imgSource} alt="" />
+      </div>
+      <div className="media-body">
+        <div className="video-list-entry-title">{title}</div>
+        <div className="video-list-entry-detail">{desc}</div>
+      </div>
     </div>
-    <div className="media-body">
-      <div className="video-list-entry-title">Video Title</div>
-      <div className="video-list-entry-detail">Video Description</div>
-    </div>
-  </div>
-);
+  );
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
@@ -19,3 +26,6 @@ VideoListEntry.propTypes = {
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
 export default VideoListEntry;
+
+
+// Need to enable clicking the entire component to display the video in the videoPlayer
