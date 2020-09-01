@@ -1,6 +1,5 @@
-
 var VideoPlayer = (props) => {
-  // can use const??
+
   let firstVideoURL = `https://www.youtube.com/embed/${props.video.id.videoId}`;
   let title = props.video.snippet.title;
   let desc = props.video.snippet.description;

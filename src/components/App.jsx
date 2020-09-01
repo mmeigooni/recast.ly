@@ -1,12 +1,30 @@
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
+// import updateVideo from './updateVideo.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      selectedVideo: exampleVideoData[0]
+    };
+
+    this.updateVideo = this.updateVideo.bind(this);
+
+    // debugger;
+    // updateVideo = updateVideo.bind(this);
   }
+
+  updateVideo(video) {
+    this.setState({
+      selectedVideo: video
+    });
+  }
+
+
 
   render() {
     return (
@@ -19,10 +37,10 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            {<VideoPlayer video={exampleVideoData[0]}/>}
+            {<VideoPlayer video={this.state.selectedVideo}/>}
           </div>
           <div className="col-md-5 video-list-container">
-            {<VideoList videos={exampleVideoData}/>}
+            {<VideoList videos={exampleVideoData} update={this.updateVideo}/>}
           </div>
         </div>
       </div>
