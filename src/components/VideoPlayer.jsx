@@ -1,6 +1,9 @@
 
 var VideoPlayer = (props) => {
-  var firstVideoURL = `https://www.youtube.com/embed/${props.video.id.videoId}?autoplay=1`;
+  // can use const??
+  let firstVideoURL = `https://www.youtube.com/embed/${props.video.id.videoId}`;
+  let title = props.video.snippet.title;
+  let desc = props.video.snippet.description;
 
   return (
     <div className="video-player">
@@ -8,8 +11,8 @@ var VideoPlayer = (props) => {
         <iframe className="embed-responsive-item" src={firstVideoURL} allowFullScreen></iframe>
       </div>
       <div className="video-player-details">
-        <h3>Video Title</h3>
-        <div>Video Description</div>
+        <h3>{title}</h3>
+        <div>{desc}</div>
       </div>
     </div>
   );
